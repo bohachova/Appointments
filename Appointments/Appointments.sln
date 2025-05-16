@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Appointments", "Appointments.csproj", "{7BFA7796-55D1-4A51-8A5C-C38D70B83FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointments", "Appointments.csproj", "{7BFA7796-55D1-4A51-8A5C-C38D70B83FCD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointments.BL", "..\Appointments.BL\Appointments.BL.csproj", "{86AD578F-73D8-4FD1-86EA-8D260D9CE15A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointments.BL.Abstracts", "..\Appointments.BL.Abstracts\Appointments.BL.Abstracts.csproj", "{5B1D728E-E439-46B5-B300-92F116276BDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointments.DAL", "..\Appointments.DAL\Appointments.DAL.csproj", "{C22967FD-8B50-4E15-BC40-60091CB39B32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Appointments.DataObjects", "..\Appointments.DataObjects\Appointments.DataObjects.csproj", "{540636D3-0151-4221-A835-30B55BFF8EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{7BFA7796-55D1-4A51-8A5C-C38D70B83FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFA7796-55D1-4A51-8A5C-C38D70B83FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFA7796-55D1-4A51-8A5C-C38D70B83FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86AD578F-73D8-4FD1-86EA-8D260D9CE15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86AD578F-73D8-4FD1-86EA-8D260D9CE15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86AD578F-73D8-4FD1-86EA-8D260D9CE15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86AD578F-73D8-4FD1-86EA-8D260D9CE15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1D728E-E439-46B5-B300-92F116276BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1D728E-E439-46B5-B300-92F116276BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1D728E-E439-46B5-B300-92F116276BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1D728E-E439-46B5-B300-92F116276BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C22967FD-8B50-4E15-BC40-60091CB39B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C22967FD-8B50-4E15-BC40-60091CB39B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C22967FD-8B50-4E15-BC40-60091CB39B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C22967FD-8B50-4E15-BC40-60091CB39B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{540636D3-0151-4221-A835-30B55BFF8EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{540636D3-0151-4221-A835-30B55BFF8EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{540636D3-0151-4221-A835-30B55BFF8EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{540636D3-0151-4221-A835-30B55BFF8EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
