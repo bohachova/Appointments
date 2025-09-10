@@ -5,7 +5,7 @@ namespace Appointments.DataObjects
 {
     public class Customer
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Required]
         [StringLength(30, MinimumLength = 2)]
         public string FirstName { get; set; } = string.Empty;

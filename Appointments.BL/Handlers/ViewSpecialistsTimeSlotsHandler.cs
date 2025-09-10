@@ -16,7 +16,7 @@ namespace Appointments.BL.Handlers
             var scheduleForDay = await dbContext.Schedule.AsNoTracking().Where(x => x.Specialist == request.SpecialistId && x.DayOfTheWeek == request.DayOfWeek)
                                                          .FirstOrDefaultAsync(cancellationToken);
             var serviceTiming = 0;
-            if(request.ServiceSelected)
+            if (request.ServiceSelected)
                 serviceTiming = await dbContext.ServiceList.Where(x => x.Id == request.ServiceId).Select(x => x.Timing).FirstOrDefaultAsync(cancellationToken);
 
             if (scheduleForDay != null)
@@ -69,14 +69,25 @@ namespace Appointments.BL.Handlers
                 }
                 else
                 {
-                    while (availableStart < scheduleForDay.EndTime)
+                    if (request.ServiceSelected)
                     {
-                        freeSlots.Add(new TimeSlot { Start = availableStart, SpecialistId = request.SpecialistId });
-                        availableStart = availableStart.Add(slotDurationMinutes);
+                        while (availableStart.Add(TimeSpan.FromMinutes(serviceTiming)) <= scheduleForDay.EndTime)
+                        {
+                            freeSlots.Add(new TimeSlot { Start = availableStart, SpecialistId = request.SpecialistId });
+                            availableStart = availableStart.Add(slotDurationMinutes);
+                        }
+                    }
+                    else
+                    {
+                        while (availableStart < scheduleForDay.EndTime)
+                        {
+                            freeSlots.Add(new TimeSlot { Start = availableStart, SpecialistId = request.SpecialistId });
+                            availableStart = availableStart.Add(slotDurationMinutes);
+                        }
                     }
                 }
-               
-                if(request.Date.Date == DateTime.Now.Date)
+
+                if (request.Date.Date == DateTime.Now.Date)
                 {
                     freeSlots = freeSlots.Where(x => x.Start > DateTime.Now.TimeOfDay).ToList();
                 }

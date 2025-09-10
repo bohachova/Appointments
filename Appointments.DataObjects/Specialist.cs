@@ -8,5 +8,6 @@ namespace Appointments.DataObjects
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public Grade Grade { get; set; }
+        public string Photo { get; set; } = string.Empty;
     }
 }

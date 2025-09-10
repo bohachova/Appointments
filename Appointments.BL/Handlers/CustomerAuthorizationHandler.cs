@@ -17,9 +17,9 @@ namespace Appointments.BL.Handlers
 
             if(customer != null && passwordHasher.Verify(request.Password, customer.Password))
             {
-                var token = JWTTokenGenerator.GetToken(customer.Id);
-                var refreshToken = await refreshTokenManager.GetRefreshToken(customer.Id);
-                return new AuthResponse { IsSuccess = true, AccessToken = token, RefreshToken = refreshToken, UserId = customer.Id };
+                var token = JWTTokenGenerator.GetToken((int)customer.Id);
+                var refreshToken = await refreshTokenManager.GetRefreshToken((int)customer.Id);
+                return new AuthResponse { IsSuccess = true, AccessToken = token, RefreshToken = refreshToken, UserId = (int)customer.Id };
             }
 
             return new AuthResponse { IsSuccess = false };

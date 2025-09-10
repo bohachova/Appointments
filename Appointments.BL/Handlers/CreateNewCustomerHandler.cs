@@ -35,10 +35,10 @@ namespace Appointments.BL.Handlers
                     await dbContext.SaveChangesAsync();
 
                     var userId = await dbContext.Customers.AsNoTracking().Where(x => x.Phone == request.Phone).Select(x => x.Id).FirstOrDefaultAsync(cancellationToken);
-                    var token = JWTTokenGenerator.GetToken(userId);
-                    var refreshToken = await refreshTokenManager.GetRefreshToken(userId);
+                    var token = JWTTokenGenerator.GetToken((int)userId);
+                    var refreshToken = await refreshTokenManager.GetRefreshToken((int)userId);
 
-                    return new AuthResponse { IsSuccess = true, AccessToken = token, RefreshToken = refreshToken, UserId = userId };
+                    return new AuthResponse { IsSuccess = true, AccessToken = token, RefreshToken = refreshToken, UserId = (int)userId };
                 }
                 else
                 {

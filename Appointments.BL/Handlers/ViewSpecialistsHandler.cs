@@ -5,6 +5,7 @@ using Appointments.DataObjects.MappedResponses;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Appointments.BL.Handlers
 {
@@ -14,12 +15,12 @@ namespace Appointments.BL.Handlers
         public async Task<IEnumerable<SpecialistResponseModel>> Handle(ViewSpecialistsQuery request, CancellationToken cancellationToken)
         {
             var result = new List<Specialist>();
-            if (request.ServiceCode != null)
+            if (request.ServiceCode != null && request.RequestedSpecialists.IsNullOrEmpty())
             {
                 var serviceExperts = await dbContext.FullServiceData.AsNoTracking().Where(x => x.ServiceCode == request.ServiceCode).Select(x => x.Specialist).ToListAsync(cancellationToken);
                 result = await dbContext.Specialists.AsNoTracking().Where(s => serviceExperts.Contains(s.Id)).ToListAsync(cancellationToken);
             }
-            else if (request.RequestedSpecialists.Any())
+            else if (request.RequestedSpecialists.Count > 0)
             {
                 result = await dbContext.Specialists.AsNoTracking().Where(x => request.RequestedSpecialists.Contains(x.Id)).ToListAsync(cancellationToken);
             }

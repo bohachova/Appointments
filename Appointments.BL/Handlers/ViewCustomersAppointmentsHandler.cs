@@ -34,7 +34,7 @@ namespace Appointments.BL.Handlers
             {
                 var specialist = await dbContext.Specialists.Where(x => x.Id == appointment.Specialist).Select(x => x.FirstName + ' ' + x.LastName).FirstOrDefaultAsync(cancellationToken);
                 var service = await dbContext.ServiceList.Where(x => x.Id == appointment.ServiceCode).Select(x => x.ServiceName).FirstOrDefaultAsync(cancellationToken);
-                result.Add(new AppointmentResponseModel { Specialist = specialist, Service = service, DateTime = DateTime.SpecifyKind(appointment.Date.Add(appointment.StartTime), DateTimeKind.Utc), Price = appointment.Price });
+                result.Add(new AppointmentResponseModel { Id = appointment.Id, Specialist = specialist, Service = service, DateTime = DateTime.SpecifyKind(appointment.Date.Add(appointment.StartTime), DateTimeKind.Utc), Price = appointment.Price });
             }
 
             return result;

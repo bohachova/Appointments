@@ -9,5 +9,6 @@ namespace Appointments.DataObjects.MappedResponses
         public string LastName { get; set; } = string.Empty;
         public Grade Grade { get; set; }
         public int? Price { get; set; }
+        public string Photo { get; set; } = string.Empty;
     }
 }

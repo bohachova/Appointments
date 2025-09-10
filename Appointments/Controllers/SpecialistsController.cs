@@ -29,7 +29,7 @@ namespace Appointments.Controllers
         [HttpPost("{serviceCode}/available")]
         public async Task<IActionResult> GetAvailableSpecialists([FromRoute] int serviceCode, [FromBody] List<int> specialists)
         {
-            var query = new ViewSpecialistsQuery { RequestedSpecialists = specialists };
+            var query = new ViewSpecialistsQuery { ServiceCode = serviceCode, RequestedSpecialists = specialists };
             var result = await mediator.Send(query);
             return Ok(result);
         }

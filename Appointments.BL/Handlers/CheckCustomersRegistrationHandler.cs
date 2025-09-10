@@ -17,7 +17,7 @@ namespace Appointments.BL.Handlers
             if(user != null)
             {
                 response.Status = user.Password != null ? RegistrationStatus.Registered : RegistrationStatus.NotCompletedRegistration;
-                response.CustomerId = user.Id;
+                response.CustomerId = (int)user.Id;
                 return response;
             }
             response.Status = RegistrationStatus.NewCustomer;
